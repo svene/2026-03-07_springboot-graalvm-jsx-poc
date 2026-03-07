@@ -93,6 +93,11 @@ class TextEncoder {
 	}
 
 	public String renderPage(String name, int age) {
+		try {
+			init();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 		Value result = renderPageFunction.execute(
 			ProxyObject.fromMap(
 				java.util.Map.of(

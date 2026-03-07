@@ -4,7 +4,7 @@ import {User} from "./models";
 
 export const Page = (props: User) => (
 	<Layout>
-		<div>Name: {props.user.name}</div>
+		<div>Namexxxxxx: {props.user.name}</div>
 		<div>Age: {props.user.age}</div>
 	</Layout>
 );
