@@ -1,0 +1,18 @@
+{
+  "name": "frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "genjava": "bun run javagen/generate-java-from-hono.ts",
+    "build": "bun build.js",
+    "watch": "bun watch.ts"
+  },
+  "dependencies": {
+    "preact": "^10.28.3",
+    "@preact/signals": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.9",
+    "ts-morph": "^27.0.2"
+  }
+}
