@@ -5,11 +5,12 @@
   "scripts": {
     "genjava": "bun run javagen/generate-java-from-hono.ts",
     "build": "bun build.js",
+    "build2": "bun build src/main/java/org/svenehrke/demo/web/render.tsx --format esm --outfile target/classes/static/fe/ssr.js --target bun --no-node-globals",
+    "build3": "npx esbuild src/main/java/org/svenehrke/demo/web/render.tsx --bundle --platform=neutral --format=cjs --outfile=target/classes/static/fe/ssr.js",
     "watch": "bun watch.ts"
   },
   "dependencies": {
-    "preact": "^10.28.3",
-    "@preact/signals": "^2.7.0"
+    "hono": "^4.11.3"
   },
   "devDependencies": {
     "@types/bun": "^1.3.9",

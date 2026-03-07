@@ -32,7 +32,7 @@ public class MainController {
 		String name = "John";
 		int age = 42;
 
-		return renderer.renderUserPage(name, age);
+		return renderer.renderPage(name, age);
 	}
 
 	@GetMapping("/persons")
