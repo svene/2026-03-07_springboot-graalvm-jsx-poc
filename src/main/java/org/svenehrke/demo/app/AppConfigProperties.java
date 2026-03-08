@@ -1,4 +1,4 @@
-package org.svenehrke.demo.web;
+package org.svenehrke.demo.app;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.validation.annotation.Validated;

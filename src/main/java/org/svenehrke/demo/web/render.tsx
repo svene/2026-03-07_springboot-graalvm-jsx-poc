@@ -1,7 +1,7 @@
 import { renderToString } from 'hono/jsx/dom/server';
+import {PageVM} from "./models-vm";
 import {Page} from "./page";
-import {User} from "./models";
 
-export function renderPage(props: User): string {
-	return renderToString(<Page {...props} />)
+export function renderPage(vm: PageVM): string {
+	return renderToString(<Page {...vm} />)
 }

@@ -1,4 +1,4 @@
-package org.svenehrke.demo.web;
+package org.svenehrke.demo.app;
 
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 import org.svenehrke.demo.core.Person;
+import org.svenehrke.demo.web.infra.js.JsxRenderer;
 
 import java.util.List;
 

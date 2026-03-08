@@ -1,10 +1,11 @@
-package org.svenehrke.demo.web;
+package org.svenehrke.demo.web.infra.js;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 import org.svenehrke.demo.inbound.web.PageVM;
 import org.svenehrke.demo.inbound.web.UserVM;
-import org.svenehrke.demo.web.infra.JsInitializer;
+import org.svenehrke.demo.app.AppConfigProperties;
+import org.svenehrke.demo.app.RuntimeEnvironment;
 
 import java.io.IOException;
 
@@ -30,7 +31,6 @@ public class JsxRenderer {
 			appConfigProperties.ssr().entryfunction()
 		);
 	}
-
 
 	public String renderPage(String name, int age) {
 		if (runtimeEnvironment.isDevMode()) {
