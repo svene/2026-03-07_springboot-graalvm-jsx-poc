@@ -4,14 +4,14 @@ import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Source;
 import org.graalvm.polyglot.Value;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.Reader;
 
 public class JsInitializer {
 	private org.graalvm.polyglot.Context context;
 	private org.graalvm.polyglot.Value entryFunction;
 
-	public JsInitializer(String rootFilename, String entryFunctionName) throws IOException {
+	public JsInitializer(String rootFilename, Reader isr, String entryFunctionName) throws IOException {
 		Context ctx = Context.newBuilder("js").allowAllAccess(true).build();
 		ctx.eval("js", """
 			class TextEncoder {
@@ -37,7 +37,7 @@ public class JsInitializer {
 			""");
 		ctx.eval("js", "var module = {exports:{}}; var exports = module.exports;");
 
-		var source = Source.newBuilder("js", new File(rootFilename)).build();
+		var source = Source.newBuilder("js", isr, rootFilename).build();
 		ctx.eval(source);
 
 		entryFunction = ctx.getBindings("js")
