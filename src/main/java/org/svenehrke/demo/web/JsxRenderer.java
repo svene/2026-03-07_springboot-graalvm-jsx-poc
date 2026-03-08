@@ -11,14 +11,14 @@ public class JsxRenderer {
 
 	private org.graalvm.polyglot.Context context;
 	private org.graalvm.polyglot.Value renderPageFunction;
-	private final AppConfig appConfig;
+	private final RuntimeEnvironment runtimeEnvironment;
 	private final AppConfigProperties appConfigProperties;
 
 	public JsxRenderer(
-		AppConfig appConfig,
+		RuntimeEnvironment runtimeEnvironment,
 		AppConfigProperties appConfigProperties
 	) {
-		this.appConfig = appConfig;
+		this.runtimeEnvironment = runtimeEnvironment;
 		this.appConfigProperties = appConfigProperties;
 	}
 
@@ -55,15 +55,15 @@ public class JsxRenderer {
 		renderPageFunction = context.getBindings("js")
 			.getMember("module")
 			.getMember("exports")
-			.getMember(appConfigProperties.entryfunction());
+			.getMember(appConfigProperties.ssr().entryfunction());
 
 		if (!renderPageFunction.canExecute()) {
-			throw new RuntimeException("'%s 'is undefined or not executable".formatted(appConfigProperties.entryfunction()));
+			throw new RuntimeException("'%s 'is undefined or not executable".formatted(appConfigProperties.ssr().entryfunction()));
 		}
 	}
 
 	public String renderPage(String name, int age) {
-		if (appConfig.isDevMode()) {
+		if (runtimeEnvironment.isDevMode()) {
 			try {
 				init();
 			} catch (IOException e) {
