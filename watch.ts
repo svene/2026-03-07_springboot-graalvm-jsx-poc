@@ -4,7 +4,7 @@ import {resolve} from "path";
 const scanRoot = resolve(import.meta.dir, "src/main/java");
 
 async function build() {
-	const proc = Bun.spawn(["bun", "build.js"], {
+	const proc = Bun.spawn(["bun", "run", "build"], {
 		cwd: import.meta.dir,
 		stdout: "inherit",
 		stderr: "inherit",

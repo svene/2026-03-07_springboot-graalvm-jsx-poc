@@ -1,7 +1,6 @@
-import {PropsWithChildren} from "preact/compat";
-import {ComponentChildren} from "preact";
+import type {Child} from 'hono/jsx'
 
-export const Layout = ({ children }: { children: ComponentChildren }) => (
+export const Layout = ({ children }: { children: Child }) => (
 	<html>
 	<body>
 	{children}
