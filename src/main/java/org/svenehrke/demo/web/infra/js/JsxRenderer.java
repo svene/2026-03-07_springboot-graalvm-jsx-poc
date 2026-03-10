@@ -48,7 +48,7 @@ public class JsxRenderer {
 				throw new RuntimeException(e);
 			}
 		}
-		var pageVM = new PageVM(new UserVM(name, age));
+		var pageVM = new PageVM(new UserVM(name, age)); // TODO: move out
 
 		var result = jsInitializer.getEntryFunction().execute(JsConverter.toJs(pageVM));
 		return result.asString();
